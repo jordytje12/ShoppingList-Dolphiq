@@ -21,6 +21,7 @@ cd ShoppingList-Dolphiq
 
 ### 2. Install dependencies
 composer install
+npm install
 
 ### 3. Environment setup
 cp .env.example .env
