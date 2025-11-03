@@ -22,8 +22,7 @@ class UpdateGroceryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes',
-            'quantity' => 'sometimes'
+            'quantity' => ['required', 'integer', 'min:1']
         ];
     }
 }

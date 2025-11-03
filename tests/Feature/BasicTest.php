@@ -31,7 +31,7 @@ it('can add product to shopping list', function () {
         'quantity' => 1,
     ]);
 
-    $response->assertStatus(201)
+    $response->assertCreated()
         ->assertJson([
             'data' => [
                 'name' => 'Milk',

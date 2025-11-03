@@ -4,11 +4,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 pest()->use(RefreshDatabase::class);
 
-//it('returns 404 for non-existent shopping list')
-//it('returns 404 when updating non-existent product')
+it('returns 404 when shopping list not found', function () {
+    $this->getJson('/api/shopping-lists/999')
+        ->assertNotFound();
+});
 
-test('example', function () {
-    $response = $this->get('/');
-
-    $response->assertStatus(200);
+it('returns 404 when updating non-existent grocery', function () {
+    $this->patchJson('/api/groceries/999', [
+        'quantity' => 2,
+    ])->assertNotFound();
 });
