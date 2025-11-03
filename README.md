@@ -26,10 +26,17 @@ composer install
 cp .env.example .env
 php artisan key:generate
 
-### 4. Run migrations
+### 4. Make storage and cache
+mkdir -p storage/framework/{cache,sessions,views} bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+### 5. SQLite quick setup
+mkdir -p database && touch database/database.sqlite
+
+### 6. Run migrations
 php artisan migrate
 
-### 5. Run server
+### 7. Run server
 php artisan serve
 
 The api is now running on http://localhost:8000/
